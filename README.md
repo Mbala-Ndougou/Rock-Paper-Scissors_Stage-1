@@ -1,3 +1,3 @@
-#Rock-Paper-Scissors
-##Stage-1
-###Played in the browser
+Rock-Paper-Scissors
+Stage-1
+Played in the browser
