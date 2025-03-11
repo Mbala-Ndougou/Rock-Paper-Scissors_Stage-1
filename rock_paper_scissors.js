@@ -39,7 +39,7 @@ function getPlayerChoice(){
 // getPlayerChoice()
 
 
-// PLAYROUND
+// PLAYROUND (function that plays one round)
 
 function playRound(){
     let playerChoice = getPlayerChoice().toLowerCase()
@@ -101,14 +101,14 @@ function playRound(){
     
 }
 
-// LOOPING 5
+// LOOPING 5 TIMES
 
 for (let i = 0; i < 5; i++) {
     playRound()
     
 }
 
-// END
+// END OF THE GAME
 
 }
 
