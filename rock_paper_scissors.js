@@ -9,12 +9,12 @@ function playGame() {
     let computerChoice = ""
 
     function getComputerChoice() {
-        let a = Math.floor(Math.random() * 3) + 1
-        if(a == 1) {
+        let hazard = Math.floor(Math.random() * 3) + 1
+        if(hazard == 1) {
             computerChoice = "Rock"
             return computerChoice 
         }
-        else if(a == 2) {
+        else if(hazard == 2) {
             computerChoice = "Paper"
             return computerChoice 
         }
