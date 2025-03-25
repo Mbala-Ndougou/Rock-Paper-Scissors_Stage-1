@@ -3,8 +3,48 @@ function playGame() {
     let computerScore = 0
 
 
-    // COMPUTER CHOICE
+    // CREATING NEW BUTTONS
 
+    const rock = document.createElement("button")
+    rock.textContent = "Rock"
+    document.body.appendChild(rock)
+    const paper = document.createElement("button")
+    paper.textContent = "Paper"
+    document.body.appendChild(paper)
+    const scissors = document.createElement("button")
+    scissors.textContent = "Scissors"
+    document.body.appendChild(scissors)
+
+    const buttons = document.querySelectorAll("button")
+    let playerChoice;
+    for(const btn of buttons){
+        btn.addEventListener('click', ()=>{
+            playerChoice = btn.textContent
+            playRound(playerChoice);
+        })
+    }
+
+
+
+
+    // SCORES divs
+
+    let score = "Player"+playerScore+" PC"+computerScore
+    const div1 = document.createElement("div")
+
+    div1.textContent = score;
+    document.body.appendChild(div1)
+
+    const div2 = document.createElement("div")
+    document.body.appendChild(div2)
+    
+    const div3 = document.createElement("div")
+    document.body.appendChild(div3)
+
+   
+    
+
+// GET COMPUTER CHOICE
 
     let computerChoice = ""
 
@@ -24,34 +64,22 @@ function playGame() {
         }
     }
 
-    // getComputerChoice();
 
 
-    // PLAYER CHOICE
 
-    let playerChoice = ""
+    //PLAYROUND FUNCTION 
 
-    function getPlayerChoice(){
-        playerChoice = prompt("Choose: Rock/Paper/Scissors")
-        return playerChoice
-    }
-
-    // getPlayerChoice()
-
-
-    // PLAYROUND (function that plays one round)
-
-    function playRound(){
-        let playerChoice = getPlayerChoice().toLowerCase()
+    function playRound(playerChoice){
+        // let playerChoice = getPlayerChoice().toLowerCase()
+        playerChoice = playerChoice.toLowerCase()
         let computerChoice = getComputerChoice().toLowerCase()
 
         switch (playerChoice) {
 
             case computerChoice:
                 console.log("Player:"+playerChoice+ "PC:"+computerChoice+" Draw !");  
-                let score = "Player"+playerScore+" PC"+computerScore
-                console.log(score);          
-                return`Player:${playerScore} Computer:${computerScore}`;            
+                // console.log(score);          
+                // return`Player:${playerScore} Computer:${computerScore}`;            
 
 
             case "rock":
@@ -95,18 +123,26 @@ function playGame() {
                 break;
         }
 
-        let score = "Player: "+playerScore+" PC: "+computerScore
-        console.log(score); 
-                
+        
+        div2.textContent = `Player:${playerScore} Computer:${computerScore}`
+        if(playerScore === 5){
+            div3.textContent = "Player won!"
+            return
+        }
+        else if(computerScore === 5){
+            div3.textContent = "CPU won"
+            return
+        }
+        
         
     }
 
     // LOOPING 5 TIMES
 
-    for (let i = 0; i < 5; i++) {
-        playRound()
+    // for (let i = 0; i < 5; i++) {
+    //     playRound()
         
-    }
+    // }
 
 // END OF THE GAME
 
